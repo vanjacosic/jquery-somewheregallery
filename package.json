@@ -1,0 +1,26 @@
+{
+  "name": "jquery-somewheregallery",
+  "title": "jQuery Somewhere Gallery",
+  "homepage": "https://github.com/vanjacosic/jquery-somewheregallery",
+  "version": "0.3.0",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-uglify": "~0.2.2"
+  },
+  "description": "A simple jQuery plugin for displaying sparks from Somewhere (http://somewherehq.com)",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vanjacosic/jquery-somewheregallery.git"
+  },
+  "keywords": [
+    "jQuery",
+    "Somewhere",
+    "gallery"
+  ],
+  "author": "Vanja Cosic",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "0226016fc6b7cbd5db6208a653fcb27797b0a5bc"
+}
