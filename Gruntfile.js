@@ -7,12 +7,12 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> by Opbeat - <%= grunt.template.today("dd-mm-yyyy") %> */\n'
       },
       build: {
-        src: 'jquery.somewheregallery.js',
-        dest: 'jquery.somewheregallery.min.js'
+        src: 'javascript/jquery.somewheregallery.js',
+        dest: 'javascript/jquery.somewheregallery.min.js'
       }
     },
     jshint: {
-      files: ['gruntfile.js', 'jquery.somewheregallery.js'],
+      files: ['Gruntfile.js', 'javascript/jquery.somewheregallery.js'],
       options: {
         // options here to override JSHint defaults
         globals: {
