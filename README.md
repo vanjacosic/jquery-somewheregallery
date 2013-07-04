@@ -3,6 +3,8 @@ jquery-somewheregallery
 
 A simple jQuery plugin for displaying sparks from Somewhere (http://somewherehq.com)
 
+Made by Vanja Cosic from Opbeat (http://opbeat.com) for the guys at Somewhere and everyone else!
+
 ## Usage
 
 1. Include jQuery on your page:

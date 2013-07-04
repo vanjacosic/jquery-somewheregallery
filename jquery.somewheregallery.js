@@ -1,7 +1,9 @@
 /*
  *  jQuery Somewhere Gallery - v0.3
- *  Made by Vanja Cosic, Opbeat Inc.
+ *
  *  Under MIT License
+ *  Made by Vanja Cosic at Opbeat Inc.
+ *  Visit us at http://opbeat.com
  *
  *  --------------------------------
  *
