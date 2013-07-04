@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>jQuery SomewhereGallery demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/demo.css">
+    </head>
+    <body>
+        <div class="description">
+            <h1>jQuery SomewhereGallery plugin</h1>
+            <p>A simple jQuery plugin for displaying sparks from Somewhere (<a href="http://somewherehq.com" target="_blank">http://somewherehq.com</a>)</p>
+        </div>
+
+        <div class="container">
+            
+        </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="jquery.somewheregallery.js"></script>
+
+        <script>
+        $(document).ready(function() {
+            
+            $('.container').somewhereGallery({
+                profile: "opbeat",
+                sparks: ['1743', '1745', '1471', '1750', '1746', '1744', '1472', '1747', '1748', '1751', '1473'],
+                imageSize: "talk_image",
+                debug: true
+            });
+
+        });
+        </script>        
+
+    </body>
+</html>
