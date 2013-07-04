@@ -1,5 +1,5 @@
 /*
- *  jQuery Somewhere Gallery - v0.2
+ *  jQuery Somewhere Gallery - v0.3
  *  Made by Vanja Cosic, Opbeat Inc.
  *  Under MIT License
  *
@@ -60,46 +60,34 @@
             // If debug is on, log settings and sparks
             console.log('Settings:', self.settings);
         },
-        createProfileUrl: function(sparkId) {
+        createSparksUrl: function(profile) {
             // Construct API url for profile
-            return this.settings.baseURL + this.settings.profile + '/sparks.json';
+            return this.settings.baseURL + profile + '/sparks.json';
         },
-        createSparkUrl: function(sparkId) {
-            // Construct API url for single spark
-            return this.settings.baseURL + this.settings.profile + '/sparks/' + sparkId + '.json';
-        },
-        getProfileData: function(profilename) {
+        getProfileData: function(profile) {
             var self = this;
 
             // Fetch profile data
             $.ajax({
-                url: self.createProfileUrl(profilename),
+                url: self.createSparksUrl(profile),
                 dataType: 'json',
                 success: function(sparks) {
-                    self.getSparkData(sparks);
+                    self.loadSparkData(sparks);
                 },
                 error: function(xhr, status, error) {
                     throw 'API error!';
                 }
             });
         },
-        getSparkData: function(sparks) {
+        loadSparkData: function(sparks) {
             var self = this;
 
-            $.each(sparks.sparks, function(i, sparkId){
+            // Loop over sparks from API
+            $.each(sparks.sparks, function(i, sparkData){
 
-                // Fetch spark data
-                $.ajax({
-                    url: self.createSparkUrl(sparkId),
-                    dataType: 'json',
-                    success: function( data ) {
-                        // Create elements from data
-                        self.createGalleryImage(data);
-                    },
-                    error: function(xhr, status, error) {
-                        throw 'API error!';
-                    }
-                });
+                // Create elements from data
+                self.createGalleryImage(sparkData);
+
             });
         },
         createGalleryImage: function(data){
