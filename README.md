@@ -21,25 +21,34 @@ A simple jQuery plugin for displaying sparks from Somewhere (http://somewherehq.
 
     ```javascript
     $('.element').somewhereGallery({
-        profile: 'profilename',
-        sparks: [1, 2, 3, 4]
+        profile: 'profilename'
     });
     ```
 
-The file `demo.html also demonstrates usage of the plugin.
+The file `demo.html` also demonstrates usage of the plugin.
 
 ## Options
 
 ### Required options
 
-- profile: (*string*) - The Somewhere profile to show sparks from.
-- sparks: (*array*) - An array of spark IDs to show.
+- **profile**: (string) - The Somewhere profile to show sparks from.
 
 ### Other options
 
-- imageSize: (*string*, options: `'image'`, `'profile_image'`, `'avatar_image'`, `'talk_image'`)
-- debug: (*boolean*, default: `false`) - Show logging data for development and testing purposes.
-- baseURL: (*string*, default: `'http://somewherehq.com/'`) - Base API url, it shouldn't change.
+- **imageSize**: (string, options: `'image'`, `'profile_image'`, `'avatar_image'`, `'talk_image'`)
+- **debug**: (boolean, default: `false`) - Show logging data for development and testing purposes.
+- **baseURL**: (string, default: `'http://somewherehq.com/'`) - Base API url, shouldn't be changed.
+
+## Changelog
+
+### v. 0.3
+- Somewhere API has been updated. It is no longer necessary to provide an array of ID's. These are now fetched using the profile name.
+- **profile** is now the only required option.
+- README have been updated to reflect API change.
+- Added changelog to README.
+
+### v. 0.2
+- Converted initial code into a jQuery plugin, added demo and documentation.
 
 ## Compatibility
 

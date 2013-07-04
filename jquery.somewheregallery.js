@@ -18,7 +18,6 @@
     // Create the defaults once
     var pluginName = 'somewhereGallery',
         defaults = {
-        sparks      : [],
         profile     : null,
         imageSize   : 'talk_image',
         baseURL     : 'http://somewherehq.com/',
@@ -34,7 +33,6 @@
 
         // Check for required options
         if (!this.settings.profile) throw 'A profile name is required!';
-        if (this.settings.sparks.length === 0) throw 'An array of spark id\'s is required!';
         var validImageSizes = ['image', 'profile_image', 'avatar_image', 'talk_image'];
         if($.inArray(this.settings.imageSize, validImageSizes) === -1) throw 'Invalid imageSize specified!';
 
@@ -53,37 +51,55 @@
             // Prepare container
             $(self.element).addClass('somewhere-gallery');
 
-            // Go through each spark in array
-            $.each(self.settings.sparks, function(i, sparkId){
-                // Fetch data from API
-                self.getSparkData(sparkId);
-            });
+            // Load sparks from profile API
+            self.getProfileData(this.settings.profile);
         },
         debug: function(){
             var self = this;
 
             // If debug is on, log settings and sparks
             console.log('Settings:', self.settings);
-            console.log('Sparks: ', self.settings.sparks);
         },
-        getAPIurl: function(sparkId) {
-            // Construct API url
+        createProfileUrl: function(sparkId) {
+            // Construct API url for profile
+            return this.settings.baseURL + this.settings.profile + '/sparks.json';
+        },
+        createSparkUrl: function(sparkId) {
+            // Construct API url for single spark
             return this.settings.baseURL + this.settings.profile + '/sparks/' + sparkId + '.json';
         },
-        getSparkData: function(sparkId) {
+        getProfileData: function(profilename) {
             var self = this;
 
-            // Fetch data
+            // Fetch profile data
             $.ajax({
-                url: self.getAPIurl(sparkId),
+                url: self.createProfileUrl(profilename),
                 dataType: 'json',
-                success: function( data ) {
-                    // Create elements from data
-                    self.createGalleryImage(data);
+                success: function(sparks) {
+                    self.getSparkData(sparks);
                 },
                 error: function(xhr, status, error) {
                     throw 'API error!';
                 }
+            });
+        },
+        getSparkData: function(sparks) {
+            var self = this;
+
+            $.each(sparks.sparks, function(i, sparkId){
+
+                // Fetch spark data
+                $.ajax({
+                    url: self.createSparkUrl(sparkId),
+                    dataType: 'json',
+                    success: function( data ) {
+                        // Create elements from data
+                        self.createGalleryImage(data);
+                    },
+                    error: function(xhr, status, error) {
+                        throw 'API error!';
+                    }
+                });
             });
         },
         createGalleryImage: function(data){
