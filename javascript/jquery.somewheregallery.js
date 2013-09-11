@@ -85,7 +85,7 @@
             var self = this;
 
             // Loop over sparks from API
-            $.each(sparks.sparks, function(i, sparkData){
+            $.each(sparks, function(i, sparkData){
 
                 // Create elements from data
                 self.createGalleryImage(sparkData);

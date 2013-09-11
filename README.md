@@ -43,6 +43,9 @@ The file `demo.html` also demonstrates usage of the plugin.
 
 ## Changelog
 
+### v. 0.3.1
+- Minor change to accomodate Somewhere API change. Sparks are now in an array.
+
 ### v. 0.3
 - Somewhere API has been updated. It is no longer necessary to provide an array of ID's. These are now fetched using the profile name.
 - **profile** is now the only required option.
