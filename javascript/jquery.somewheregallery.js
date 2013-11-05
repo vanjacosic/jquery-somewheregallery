@@ -22,7 +22,7 @@
         defaults = {
         profile     : null,
         imageSize   : 'talk_image',
-        baseURL     : 'http://somewherehq.com/',
+        baseURL     : 'https://www.somewhere.com/',
         debug       : false
     };
 
